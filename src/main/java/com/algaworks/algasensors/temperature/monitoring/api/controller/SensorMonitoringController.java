@@ -8,6 +8,7 @@ import io.hypersistence.tsid.TSID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,10 @@ public class SensorMonitoringController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void enable(@PathVariable TSID sensorId){
         SensorMonitoring sensor = findByIdOrDefault(sensorId);
+
+        if(sensor.getEnabled()){
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
 
         sensor.setEnabled(true);
         sensorMonitoringRepository.save(sensor);
