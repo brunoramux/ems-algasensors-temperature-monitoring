@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 public class TemperatureLogOutput {
     private UUID id;
-    private TSID sensorId;
+    private TSID sensorID;
     private OffsetDateTime registeredAt;
     private Double value;
 }

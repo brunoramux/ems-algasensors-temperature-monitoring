@@ -32,7 +32,7 @@ public class TemperatureLogController {
                         .id(temperatureLog.getId().getValue())
                         .value(temperatureLog.getValue())
                         .registeredAt(temperatureLog.getRegisteredAt())
-                        .sensorId(temperatureLog.getSensorId().getValue())
+                        .sensorID(temperatureLog.getSensorId().getValue())
                         .build());
     }
 }
